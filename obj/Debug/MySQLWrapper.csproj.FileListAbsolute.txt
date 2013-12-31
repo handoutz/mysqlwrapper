@@ -1,8 +1,0 @@
-c:\users\innatepirate\documents\visual studio 2012\Projects\MySQLWrapper\MySQLWrapper\bin\Debug\MySQLWrapper.dll
-c:\users\innatepirate\documents\visual studio 2012\Projects\MySQLWrapper\MySQLWrapper\bin\Debug\MySQLWrapper.pdb
-c:\users\innatepirate\documents\visual studio 2012\Projects\MySQLWrapper\MySQLWrapper\bin\Debug\log4net.dll
-c:\users\innatepirate\documents\visual studio 2012\Projects\MySQLWrapper\MySQLWrapper\bin\Debug\MySql.Data.dll
-c:\users\innatepirate\documents\visual studio 2012\Projects\MySQLWrapper\MySQLWrapper\bin\Debug\log4net.xml
-c:\users\innatepirate\documents\visual studio 2012\Projects\MySQLWrapper\MySQLWrapper\obj\Debug\MySQLWrapper.csprojResolveAssemblyReference.cache
-c:\users\innatepirate\documents\visual studio 2012\Projects\MySQLWrapper\MySQLWrapper\obj\Debug\MySQLWrapper.dll
-c:\users\innatepirate\documents\visual studio 2012\Projects\MySQLWrapper\MySQLWrapper\obj\Debug\MySQLWrapper.pdb
