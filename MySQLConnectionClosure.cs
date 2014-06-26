@@ -20,6 +20,7 @@ namespace MySQLWrapper
 
         public void Dispose()
         {
+            Connector.NotifyDisposed(this);
             Connection.Dispose();
         }
 

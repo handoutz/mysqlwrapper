@@ -28,7 +28,7 @@ namespace MySQLWrapper
                 var conn = new MySqlConnection(ConnectionString);
                 conn.Open();
                 var closure = new MySQLConnectionClosure(conn, this);
-                Connections.Add(closure);
+                //Connections.Add(closure);
                 return closure;
             }
             catch (MySqlException except)
@@ -106,6 +106,30 @@ namespace MySQLWrapper
             }
         }
 
+        public int ExecuteNonQuery(string sql, out int lastInsertId, params MySQLParameterPair[] paras)
+        {
+            try
+            {
+                using(var conn = OpenConnection())
+                using (var cmd = Prepare(conn, sql, paras))
+                {
+                    var rowsAffected = cmd.ExecuteNonQuery();
+                    using (var cmdLast = conn.Connection.CreateCommand())
+                    {
+                        cmdLast.CommandText = "select last_insert_id()";
+                        lastInsertId = (int) ((ulong) cmdLast.ExecuteScalar());
+                    }
+                    return rowsAffected;
+                }
+            }
+            catch (MySqlException e)
+            {
+                _log.Error("Error in ExecuteNonQuery", e);
+                lastInsertId = -1;
+                return -1;
+            }
+        }
+
         public MySQLReaderClosure ExecuteReader(string sql, params MySQLParameterPair[] paras)
         {
             try
@@ -119,6 +143,11 @@ namespace MySQLWrapper
                 _log.Error("Error in ExecuteReader", e);
                 return null;
             }
+        }
+
+        internal void NotifyDisposed(MySQLConnectionClosure mySqlConnectionClosure)
+        {
+            
         }
     }
 }
